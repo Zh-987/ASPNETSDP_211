@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ItStepSDP211"
   ],
-  "SelectedNode": "\\ItStepSDP211.sln",
+  "SelectedNode": "\\ItStepSDP211\\Global.asax.cs",
   "PreviewInSolutionExplorer": false
 }

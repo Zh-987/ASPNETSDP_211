@@ -18,7 +18,6 @@ namespace ItStepSDP211.Models
             db.Movies.Add(new Movie { Name = "Большой куш", Author = "Ерлан Калиакпаров", CreatedBy = "Universal Pictures", Date = DateTime.ParseExact("2022-01-10", "yyyy-mm-dd", null) });
             db.Movies.Add(new Movie { Name = "Губка боб", Author = "Зедрик Африка", CreatedBy = "Universal Pictures", Date = DateTime.ParseExact("2022-09-10", "yyyy-mm-dd", null) });
         
-            
             base.Seed(db);
         }
     }
