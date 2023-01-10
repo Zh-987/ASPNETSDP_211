@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ItStepSDP211.Models;
 using Microsoft.Ajax.Utilities;
 using ItStepSDP211.Util;
+using System.IO;
 
 namespace ItStepSDP211.Controllers
 {
@@ -20,11 +21,88 @@ namespace ItStepSDP211.Controllers
             return View();
         }
 
+        public ViewResult SomeMthd()
+        {
+            ViewData["Head"] = "Hi Itstep !";
+            ViewBag.Head1 = "Hi SDP-211 !";
+
+            return View("Index");
+        }
+
+        public RedirectResult SwipeLink()
+        {
+            /*  return Redirect("/Home/Index"); Временная переадресация*/
+            return RedirectPermanent("/Home/Index"); /*Постоянная переадресация*/
+
+        }
+
+        public RedirectToRouteResult SwipeLinkV2()
+        {
+            /* return RedirectToRoute(new { controller = "Home", action = "Index" });*/
+            return RedirectToActionPermanent("Buy", "Home", new { id = 2 });
+        }
+
+        /*Файл через путь*/
+        public FileResult GetFile()
+        {
+            string file_path = @"C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\Files\10__CT.pdf";/*Server.MapPath("~/Files/10__CT.pdf");*/
+            string file_type = "application/pdf";
+            string file_name = "10__CT.pdf";
+            return File(file_path, file_type, file_name);
+        }
+        /* Файл через байты*/
+        public FileResult GetBytes()
+        {
+            string file_path = Server.MapPath("~/Files/10__CT.pdf");
+            byte[] mas = System.IO.File.ReadAllBytes(file_path);
+            string file_type = "application/pdf";
+            string file_name = "10__CT.pdf";
+            return File(mas, file_type, file_name);
+        }
+        /*Файлы через поток*/
+        public FileResult GetStreams()
+        {
+            string file_path = Server.MapPath("~/Files/10__CT.pdf");
+            FileStream fs = new FileStream(file_path, FileMode.Open);
+            string file_type = "application/pdf";
+            string file_name = "10__CT.pdf";
+            return File(fs, file_type, file_name);
+        }
+
+        public string GetContext()
+        {
+            string browser = HttpContext.Request.Browser.Browser;
+            string user_agent = HttpContext.Request.UserAgent;
+            string url = HttpContext.Request.RawUrl;
+            string ip = HttpContext.Request.UserHostAddress;
+            string referrer = HttpContext.Request.UrlReferrer == null ? "" : HttpContext.Request.UrlReferrer.AbsoluteUri;
+
+            return "<p> Browser: " + browser + "</p> <p>User-Agent: " + user_agent + "</p><p>Url запрос: " + url + "</p> <p> Реферрер: " + referrer + "</p><p>IP: " + ip + "</p>";
+        }
+
+
+
+
+        public ActionResult Check(int age)
+        {
+            if (age < 21)
+            {
+                /*return new HttpStatusCodeResult(404);*/
+                /*return HttpNotFound();*/
+                return new HttpUnauthorizedResult();
+            }
+            return View(); 
+        }
+
         [HttpGet]
         public ActionResult Buy(int id)
         {
-            ViewBag.MovieId = id;
+            if (id > 3)
+            {
+                return Redirect("/Home/Index");
+            }
 
+            ViewBag.MovieId = id;
             return View();
         }
         [HttpPost]
@@ -59,6 +137,13 @@ namespace ItStepSDP211.Controllers
         public ActionResult GetHtml()
         {
             return new HtmlResult("Hello world !");
+        }
+
+        public ActionResult GetImg()
+        {
+            string path = "../Images/unnamed.jpg";
+
+            return new ImageResult(path);
         }
     }
 }
