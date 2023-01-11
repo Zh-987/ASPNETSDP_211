@@ -7,19 +7,42 @@ using ItStepSDP211.Models;
 using Microsoft.Ajax.Utilities;
 using ItStepSDP211.Util;
 using System.IO;
+using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace ItStepSDP211.Controllers
 {
     public class HomeController : Controller
     {
         MovieContext db = new MovieContext();
+
+        //синхронный метод
         public ActionResult Index()
         {
             IEnumerable<Movie> movies = db.Movies;
             ViewBag.Movies = movies;
+            ViewBag.Message = "This is Partial View !";
+            Session["name"] = null; //"Tom Hardi";
 
-            return View();
+            return View(db.Movies);
         }
+
+        //асинхронный метод
+
+        public async Task<ActionResult> MovieList()
+        {
+            IEnumerable<Movie> movies = await db.Movies.ToListAsync();
+            ViewBag.Movies = movies;
+
+            return View("Index");
+        }
+
+        public string getSessionName()
+        {
+            var val = Session["name"];
+            return val.ToString();
+        }
+
 
         public ViewResult SomeMthd()
         {
@@ -71,6 +94,8 @@ namespace ItStepSDP211.Controllers
 
         public string GetContext()
         {
+            HttpContext.Response.Write("<h1>Welcome to HttpContext</h1>");
+
             string browser = HttpContext.Request.Browser.Browser;
             string user_agent = HttpContext.Request.UserAgent;
             string url = HttpContext.Request.RawUrl;
@@ -80,6 +105,27 @@ namespace ItStepSDP211.Controllers
             return "<p> Browser: " + browser + "</p> <p>User-Agent: " + user_agent + "</p><p>Url запрос: " + url + "</p> <p> Реферрер: " + referrer + "</p><p>IP: " + ip + "</p>";
         }
 
+        public void ContextReponse()
+        {
+            HttpContext.Response.Write("<h1>Welcome to HttpContext</h1>");
+        }
+
+        public string isUser()
+        {
+            bool isAdmin = HttpContext.User.IsInRole("admin");
+            bool isAuth = HttpContext.User.Identity.IsAuthenticated;
+            string login = HttpContext.User.Identity.Name;
+
+            return login;
+        }
+
+        public string Cookies()
+        {
+            HttpContext.Response.Cookies["id"].Value = "az-01w"; 
+            string id = HttpContext.Request.Cookies["id"].Value;
+
+            return id;
+        }
 
 
 
@@ -145,5 +191,15 @@ namespace ItStepSDP211.Controllers
 
             return new ImageResult(path);
         }
+
+        public ActionResult Partial()
+        {
+            
+
+            return PartialView();
+        }
+
+
+
     }
 }
