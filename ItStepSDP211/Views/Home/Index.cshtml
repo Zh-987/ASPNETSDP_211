@@ -7,7 +7,30 @@
 
 
 @*@{Html.RenderPartial("Partial")}*@
-@Html.Partial("Partial", new string[] {"Kazakhstan", "Canada", "China", "Japan"})
+<br>
+<h3>There is Partial</h3>
+
+@Html.Partial("Partial", new string[] { "Kazakhstan", "Canada", "China", "Japan" })
+
+<br>
+<h3>There is Helper which written by Razor</h3>
+
+@MyHelpers.HtmlList(new string[] { "Astana", "Toronto", "Beijin", "Tokyo" })
+
+<br>
+<h3>There is Helper which written by C# class</h3>
+
+@{
+    string[] Sightseeings = new string[] { "Baiterek", "CN tower", "Forbidden city", "Sakura" };
+}
+@using ItStepSDP211.Helpers
+@ListHelper.CreateList(Html, Sightseeings, new { @class="btn", id="sightseeinglist"})
+
+<br>
+<h3>There is ImageHelper</h3>
+
+@ImageHelper.Image(Html,"../Images/unnamed.jpg", "It Step");
+
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <h2>@ViewData["Head"]</h2>
@@ -62,10 +85,13 @@
                         <td>@b.CreatedBy</td>
                         <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
                     </tr>
-                }
+                    }
                     </ul>
             }
         </table>
+
+
+
     </div>
 </div>
 
