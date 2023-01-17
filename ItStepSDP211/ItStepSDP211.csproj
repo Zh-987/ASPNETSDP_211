@@ -190,6 +190,9 @@
     <Content Include="Views\Home\Partial.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\TwoButtons.cshtml" />
+    <Content Include="Views\Home\EditMovie.cshtml" />
+    <Content Include="Views\Home\CreateMovie.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

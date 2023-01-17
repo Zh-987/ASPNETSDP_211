@@ -9,6 +9,7 @@ using ItStepSDP211.Util;
 using System.IO;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ItStepSDP211.Controllers
 {
@@ -198,8 +199,77 @@ namespace ItStepSDP211.Controllers
 
             return PartialView();
         }
+        [HttpGet]
+        public ActionResult EditMovie(int? Id) //HttpNotFound
+        {
+            if (Id == null)
+            {
+                return HttpNotFound();
+            }
 
+            Movie movie = db.Movies.Find(Id);
 
+            if (movie != null)
+            {
+                return View(movie);
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        public ActionResult EditMovie(Movie movie)
+        {
+            db.Entry(movie).State = EntityState.Modified;
+            db.SaveChanges(); //Update
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult CreateMovie()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateMovie(Movie movie)
+        {
+            db.Entry(movie).State = EntityState.Added; 
+            db.SaveChanges();//Insert
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DeleteMovie(int movieid)
+        {
+            Movie movie = new Movie { Id = movieid };
+            db.Entry(movie).State = EntityState.Deleted;
+            db.SaveChanges();//Delete
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int Id)
+        {
+            Movie movie = db.Movies.Find(Id);
+
+            if(movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int Id)
+        {
+            Movie movie = db.Movies.Find(Id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+
+            db.Movies.Remove(movie);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        // <img src="http://address_web_app/Home/Delete/1">
 
     }
 }
