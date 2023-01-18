@@ -130,8 +130,16 @@
     <Compile Include="Controllers\BuyTicketsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Models\CourseDbInitializer.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\SoccerContext.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentContext.cs" />
     <Compile Include="Util\HtmlResult.cs" />
     <Compile Include="Util\ImageResult.cs" />
     <Compile Include="Global.asax.cs">
@@ -144,6 +152,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\SoccerInfo.mdf" />
+    <Content Include="App_Data\SoccerInfo_log.ldf">
+      <DependentUpon>SoccerInfo.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -193,10 +205,23 @@
     <Content Include="Views\Home\EditMovie.cshtml" />
     <Content Include="Views\Home\CreateMovie.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
+    <Content Include="Views\Movie\Delete.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Players\Create.cshtml" />
+    <Content Include="Views\Players\Delete.cshtml" />
+    <Content Include="Views\Players\Details.cshtml" />
+    <Content Include="Views\Players\Edit.cshtml" />
+    <Content Include="Views\Players\Index.cshtml" />
+    <Content Include="Views\Players\TeamDetails.cshtml" />
+    <Content Include="Views\Players\CreateTeam.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

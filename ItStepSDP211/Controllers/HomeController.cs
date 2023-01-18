@@ -269,7 +269,5 @@ namespace ItStepSDP211.Controllers
             return RedirectToAction("Index");
         }
 
-        // <img src="http://address_web_app/Home/Delete/1">
-
     }
 }
