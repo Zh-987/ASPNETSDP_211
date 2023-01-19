@@ -1,0 +1,23 @@
+﻿@model ItStepSDP211.Models.Student
+
+@{
+    ViewBag.Title = "AddStudentV2";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Student Version 2</h2>
+
+@{ 
+    ItStepSDP211.Models.Student student1 = new ItStepSDP211.Models.Student()
+    {
+        Name = "Jeremy"
+    };
+
+}
+
+@using (Html.BeginForm())
+            {
+    @Html.EditorFor(m => student1);
+    @Html.EditorForModel();
+    <input type="submit">
+            }

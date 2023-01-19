@@ -135,6 +135,20 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\PagingHelpers.cs" />
+    <Compile Include="Migrations\202301191405201_InitialCreate.cs" />
+    <Compile Include="Migrations\202301191405201_InitialCreate.designer.cs">
+      <DependentUpon>202301191405201_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301191505564_MigrateDB.cs" />
+    <Compile Include="Migrations\202301191505564_MigrateDB.designer.cs">
+      <DependentUpon>202301191505564_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301191601057_MigrateDB2.cs" />
+    <Compile Include="Migrations\202301191601057_MigrateDB2.designer.cs">
+      <DependentUpon>202301191601057_MigrateDB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseDbInitializer.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\SoccerContext.cs" />
@@ -218,10 +232,24 @@
     <Content Include="Views\Players\TeamDetails.cshtml" />
     <Content Include="Views\Players\CreateTeam.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Input.cshtml" />
+    <Content Include="Views\Student\AddStudent.cshtml" />
+    <Content Include="Views\Student\AddStudentV2.cshtml" />
+    <Content Include="Views\Student\GetCourses.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202301191405201_InitialCreate.resx">
+      <DependentUpon>202301191405201_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301191505564_MigrateDB.resx">
+      <DependentUpon>202301191505564_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301191601057_MigrateDB2.resx">
+      <DependentUpon>202301191601057_MigrateDB2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

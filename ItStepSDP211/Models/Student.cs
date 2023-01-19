@@ -9,8 +9,9 @@ namespace ItStepSDP211.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int Age { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
-        
+
         public Student()
         {
             Courses = new List<Course>();
@@ -28,5 +29,27 @@ namespace ItStepSDP211.Models
         {
             Students = new List<Student>();
         }
+    }
+
+    public class Teacher
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
+    public class PageInfo
+    {
+        public int PageNumber { get; set; }
+        public int PageSize{ get; set; }
+        public int TotalItems { get; set; }
+        public int TotalPages {
+            get { return (int)Math.Ceiling((decimal)TotalItems / PageSize); }
+                }
+
+    }
+    public class IndexViewModel
+    {
+        public IEnumerable<Student> Students { get; set; }
+        public PageInfo PageInfo { get; set; }
     }
 }

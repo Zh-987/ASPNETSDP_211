@@ -174,3 +174,7 @@ C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.cs
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.CopyComplete
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.dll
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.pdb
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.InitialCreate.resources
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.GenerateResource.cache
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.MigrateDB.resources
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.MigrateDB2.resources
