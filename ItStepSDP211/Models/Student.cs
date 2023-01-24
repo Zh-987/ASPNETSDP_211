@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ItStepSDP211.Models
 {
@@ -51,5 +52,12 @@ namespace ItStepSDP211.Models
     {
         public IEnumerable<Student> Students { get; set; }
         public PageInfo PageInfo { get; set; }
+    }
+
+    public class StudentsListViewModel
+    {
+        public IEnumerable<Student> Students { get; set; }
+        public SelectList Courses { get; set; }
+        public SelectList Faculty { get; set; }
     }
 }

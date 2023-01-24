@@ -1,0 +1,42 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+
+@model <#=ViewDataTypeName#>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<h2> <#=ViewName#></h2>
+
+<table>
+<#
+foreach (PropertyMetadata property in ModelMetadata.Properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+     <tr>
+        <td>
+           <b> @Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>) </b>
+        </td>
+ 
+        <td>
+            @Html.DisplayFor(model => model.<#= GetValueExpression(property) #>)
+        </td>
+     </tr>
+<#
+    }
+}
+#>
+</table>
+</body>
+
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

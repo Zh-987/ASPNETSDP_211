@@ -151,6 +151,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseDbInitializer.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\PlayerDbInitializer.cs" />
     <Compile Include="Models\SoccerContext.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
@@ -183,6 +184,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Files\10__CT.pdf" />
     <Content Include="App_Code\MyHelpers.cshtml" />
+    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
+    <Content Include="CodeTemplates\MvcView\ItStepTemplate.cs.t4" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -225,7 +230,6 @@
     <Content Include="Views\Movie\Edit.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Players\Create.cshtml" />
-    <Content Include="Views\Players\Delete.cshtml" />
     <Content Include="Views\Players\Details.cshtml" />
     <Content Include="Views\Players\Edit.cshtml" />
     <Content Include="Views\Players\Index.cshtml" />
@@ -238,6 +242,8 @@
     <Content Include="Views\Student\AddStudentV2.cshtml" />
     <Content Include="Views\Student\GetCourses.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Players\Delete.cshtml" />
+    <Content Include="Views\Players\FlterExample.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202301191405201_InitialCreate.resx">
