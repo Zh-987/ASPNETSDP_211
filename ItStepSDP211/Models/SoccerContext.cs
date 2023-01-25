@@ -10,5 +10,6 @@ namespace ItStepSDP211.Models
     {
         public DbSet<Player> Players { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<MenuItem> MenuItems { get; set; }
     }
 }

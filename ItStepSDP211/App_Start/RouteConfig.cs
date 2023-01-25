@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItStepSDP211.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,14 @@ namespace ItStepSDP211
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{id}", // Home / Index / 1
+                defaults: new { controller = "Home",action = "Index", id = UrlParameter.Optional }
+               /* constraints: new { controller = "^P.*", id=@"\d{2}", httpMethod = new HttpMethodConstraint("GET")} *///Players/Index
             );
-        }
+         /*   Route newRoute = new Route("{controller}/{action}", new MvcRouteHandler()); //Home/Index   /Home/2
+            Route newRoute2 = new Route("{controller}/{id}", new MvcRouteHandler()); //Home/Index   /Home/2
+            routes.Add(newRoute);
+            routes.Add(newRoute2);*/
+        } 
     }
 }

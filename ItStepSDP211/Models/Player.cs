@@ -36,4 +36,19 @@ namespace ItStepSDP211.Models
         public SelectList Position { get; set; }
         public SelectList Team { get; set; }
     }
+
+    public class MenuItem
+    {
+        public int Id { get; set; }
+        public string Header { get; set; } // загаловком 
+        public string Url { get; set; }
+        public int? Order { get; set; }
+        public int? ParentId { get; set; }
+        public MenuItem Parent { get; set; }
+        public ICollection<MenuItem> Children { get; set; }
+        public MenuItem(){
+            Children = new List<MenuItem>();
+        }
+    }
+
 }

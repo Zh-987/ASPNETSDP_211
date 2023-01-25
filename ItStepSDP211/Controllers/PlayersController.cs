@@ -22,7 +22,10 @@ namespace ItStepSDP211.Controllers
             var players = db.Players.Include(p => p.Team);
             return View(await players.ToListAsync());
         }
-
+        public string Index2(string name = "Football", int id = 1)
+        {
+            return name + " " + id.ToString(); 
+        }
         // GET: Players/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -202,6 +205,13 @@ namespace ItStepSDP211.Controllers
                 }),
             };
             return View(playersListView);
+        }
+
+
+        public ActionResult Menu()
+        {
+            List<MenuItem> menuitems = db.MenuItems.ToList();
+            return PartialView(menuitems);
         }
     }
 }

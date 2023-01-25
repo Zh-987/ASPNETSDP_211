@@ -136,17 +136,13 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ListHelper.cs" />
     <Compile Include="Helpers\PagingHelpers.cs" />
-    <Compile Include="Migrations\202301191405201_InitialCreate.cs" />
-    <Compile Include="Migrations\202301191405201_InitialCreate.designer.cs">
-      <DependentUpon>202301191405201_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202301181415518_InitialCreate.cs" />
+    <Compile Include="Migrations\202301181415518_InitialCreate.designer.cs">
+      <DependentUpon>202301181415518_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202301191505564_MigrateDB.cs" />
-    <Compile Include="Migrations\202301191505564_MigrateDB.designer.cs">
-      <DependentUpon>202301191505564_MigrateDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301191601057_MigrateDB2.cs" />
-    <Compile Include="Migrations\202301191601057_MigrateDB2.designer.cs">
-      <DependentUpon>202301191601057_MigrateDB2.cs</DependentUpon>
+    <Compile Include="Migrations\202301251351306_PlayerMigr.cs" />
+    <Compile Include="Migrations\202301251351306_PlayerMigr.designer.cs">
+      <DependentUpon>202301251351306_PlayerMigr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseDbInitializer.cs" />
@@ -244,16 +240,14 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Players\Delete.cshtml" />
     <Content Include="Views\Players\FlterExample.cshtml" />
+    <Content Include="Views\Players\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202301191405201_InitialCreate.resx">
-      <DependentUpon>202301191405201_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301181415518_InitialCreate.resx">
+      <DependentUpon>202301181415518_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301191505564_MigrateDB.resx">
-      <DependentUpon>202301191505564_MigrateDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301191601057_MigrateDB2.resx">
-      <DependentUpon>202301191601057_MigrateDB2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301251351306_PlayerMigr.resx">
+      <DependentUpon>202301251351306_PlayerMigr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

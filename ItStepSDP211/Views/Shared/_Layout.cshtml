@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - приложение ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,6 +29,9 @@
             </div>
         </div>
     </div>
+
+
+
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -36,15 +40,18 @@
             {
                 @RenderSection("Footer", true)
             }
-else
+            else
             {
-            <span> Содержание элемента футер по умолчанию</span>
+                <span> Содержание элемента футер по умолчанию</span>
             }
 
 
             @* <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>*@
         </footer>
     </div>
+
+    @*<script src="@Url.Content("~/bundles/bootstrap")" type="text/javascript"></script>*@
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
