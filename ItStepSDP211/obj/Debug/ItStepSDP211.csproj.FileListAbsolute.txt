@@ -170,10 +170,9 @@ C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\bin\ru\System.Web.WebPage
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\bin\ru\System.Web.WebPages.Razor.resources.dll
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.AssemblyReference.cache
-C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.InitialCreate.resources
-C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.PlayerMigr.resources
-C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.GenerateResource.cache
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.CoreCompileInputs.cache
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.CopyComplete
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.dll
 C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.pdb
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.Migrations.Soccers.resources
+C:\Users\assai\source\repos\ASPNETSDP_211\ItStepSDP211\obj\Debug\ItStepSDP211.csproj.GenerateResource.cache

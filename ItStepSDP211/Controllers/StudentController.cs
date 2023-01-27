@@ -13,14 +13,19 @@ namespace ItStepSDP211.Controllers
 
         // GET: Student
 
-      /* List<Student> studentnamesPage;
-       public StudentController()
-        {
-            studentnamesPage = new List<Student>();
-            studentnamesPage.Add(new Student {Id = 1, Name = "Adel", Age = 17, Courses})
+        /* List<Student> studentnamesPage;
+         public StudentController()
+          {
+              studentnamesPage = new List<Student>();
+              studentnamesPage.Add(new Student {Id = 1, Name = "Adel", Age = 17, Courses})
 
-        }*/
+          }*/
 
+
+
+        /*
+          
+         */
         public ActionResult Index(int page = 1)
         {
             int pageSize = 3;

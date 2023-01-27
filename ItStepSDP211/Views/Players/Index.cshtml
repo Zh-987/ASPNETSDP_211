@@ -7,34 +7,9 @@
 
 <h2>Index</h2>
 
-<br>
-
-@Html.Action("Menu", "Players")
-
-<br>
-
 <p>
-
     @Html.ActionLink("Create New", "Create")
-
-    @Html.ActionLink("Home Index", "Index", "Home")
-
-    @Html.ActionLink("First Link to index 2", "Index2", "Players", new { id = 11}, null)
-
-    @Html.ActionLink("Second Link to index 2", "Index2", "Players", new { name = "Kazakhstan Football", id = 11}, new { id="Name", @class = "link"})
-
-    @Html.RouteLink("First Link via RouteLink",new { controller = "Players", action = "Index2", id = 11 }, null)
-   
-    @Html.RouteLink("Second Link via RouteLink",new { controller = "Players", action = "Index2", name = "Kazakhstan Football", id = 11 }, new { id = "Name", @class = "link" })
-    
-    @Html.RouteLink("Default route", "Default", new { action = "Index" })
-
-    @Url.Action("Index2", "Players", new { name = "Kazakhstan Football", id = 11 }, null)
-    
-    @Url.RouteUrl(new { controller = "Players", action = "Index2", name = "Kazakhstan Football", id = 11 })
-
 </p>
-
 <table class="table">
     <tr>
         <th>
@@ -44,35 +19,58 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordConfirm)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Age)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Position)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Check)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Team.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Position)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordConfirm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Check)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
 
 </table>

@@ -8,7 +8,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ItStepSDP211.Models;
-using System.Reflection.Emit;
 
 namespace ItStepSDP211.Controllers
 {
@@ -22,13 +21,12 @@ namespace ItStepSDP211.Controllers
             var players = db.Players.Include(p => p.Team);
             return View(await players.ToListAsync());
         }
-        public string Index2(string name = "Football", int id = 1)
-        {
-            return name + " " + id.ToString(); 
-        }
+
         // GET: Players/Details/5
-        public async Task<ActionResult> Details(int? id)
+        [Authorize]
+        public async Task<ActionResult> Details(int? id, string IDUSER)
         {
+ 
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,50 +39,10 @@ namespace ItStepSDP211.Controllers
             return View(player);
         }
 
-        // GET: Players/TeamDetails/1
-        public async Task<ActionResult> TeamDetails(int? id) 
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Team team = await db.Teams.Include(t => t.Players).FirstOrDefaultAsync(t => t.Id == id);
-
-            if (team == null)
-            {
-                return HttpNotFound();
-            }
-            return View(team);
-        }
-
-        public ActionResult CreateTeam()
-        {
-            return View();
-        }
-
-        // POST: Players/Create
-        // Чтобы защититься от атак чрезмерной передачи данных, включите определенные свойства, для которых следует установить привязку. Дополнительные 
-        // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateTeam([Bind(Include = "Id,Name,Coach")] Team team)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Teams.Add(team);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-
-            return View(team);
-        }
-
-
         // GET: Players/Create
         public ActionResult Create()
-        {  
-            SelectList teams = new SelectList(db.Teams, "Id", "Name");
-            ViewBag.TeamId = teams;
+        {
+            ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name");
             return View();
         }
 
@@ -93,15 +51,32 @@ namespace ItStepSDP211.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Age,Position,TeamId")] Player player)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Email,Password,PasswordConfirm,Age,Position,Check,TeamId")] Player player)
         {
-            if (ModelState.IsValid)
+           
+            /*
+            if (string.IsNullOrEmpty(player.Name))
+            {
+                ModelState.AddModelError("Name","Incorrect name");
+            }
+            else if(player.Name.Length > 3)
+            {
+                ModelState.AddModelError("Name", "Incorrect length of Name");
+            }
+*/
+
+
+
+            if (ModelState.IsValid) 
             {
                 db.Players.Add(player);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
+
+
+            ViewBag.Message = "Non Valid";
             ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name", player.TeamId);
             return View(player);
         }
@@ -127,7 +102,7 @@ namespace ItStepSDP211.Controllers
         // сведения см. в разделе https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Age,Position,TeamId")] Player player)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Email,Password,PasswordConfirm,Age,Position,Check,TeamId")] Player player)
         {
             if (ModelState.IsValid)
             {
@@ -174,44 +149,11 @@ namespace ItStepSDP211.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult FlterExample(int? team, string position)
+        [HttpGet]
+        public JsonResult Check(string check)
         {
-            IQueryable<Player> players = db.Players.Include(p => p.Team);
-
-            if (team != null && team != 0)
-            {
-                players = players.Where(p => p.TeamId == team);
-            }
-            if (!String.IsNullOrEmpty(position) && !position.Equals("All"))
-            {
-                players = players.Where(p => p.Position == position);
-            }
-
-            List<Team> teams = db.Teams.ToList();
-
-            teams.Insert(0, new Team { Name = "All", Id = 0 });
-
-
-            PlayersListViewModel playersListView = new PlayersListViewModel
-            {
-                Players = players.ToList(),
-                Team = new SelectList(teams, "Id", "Name"),
-                Position = new SelectList(new List<string>() {
-                "All",
-                "Forward",
-                "Midfielder",
-                "Defender",
-                "GoalKeeper"
-                }),
-            };
-            return View(playersListView);
-        }
-
-
-        public ActionResult Menu()
-        {
-            List<MenuItem> menuitems = db.MenuItems.ToList();
-            return PartialView(menuitems);
+            var result = !(check == "qwerty");
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

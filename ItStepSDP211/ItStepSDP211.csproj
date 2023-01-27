@@ -136,13 +136,9 @@
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ListHelper.cs" />
     <Compile Include="Helpers\PagingHelpers.cs" />
-    <Compile Include="Migrations\202301181415518_InitialCreate.cs" />
-    <Compile Include="Migrations\202301181415518_InitialCreate.designer.cs">
-      <DependentUpon>202301181415518_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301251351306_PlayerMigr.cs" />
-    <Compile Include="Migrations\202301251351306_PlayerMigr.designer.cs">
-      <DependentUpon>202301251351306_PlayerMigr.cs</DependentUpon>
+    <Compile Include="Migrations\202301271501038_Soccers.cs" />
+    <Compile Include="Migrations\202301271501038_Soccers.designer.cs">
+      <DependentUpon>202301271501038_Soccers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CourseDbInitializer.cs" />
@@ -243,14 +239,6 @@
     <Content Include="Views\Players\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202301181415518_InitialCreate.resx">
-      <DependentUpon>202301181415518_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301251351306_PlayerMigr.resx">
-      <DependentUpon>202301251351306_PlayerMigr.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -262,6 +250,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202301271501038_Soccers.resx">
+      <DependentUpon>202301271501038_Soccers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
