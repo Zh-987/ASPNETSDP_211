@@ -10,14 +10,17 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Diagnostics.Eventing.Reader;
+using ItStepSDP211.Filters;
 
 namespace ItStepSDP211.Controllers
 {
+    /*[AuthorizationFilter(Roles = "admin,moderator", Users ="12435463452,76543456")]*/
     public class HomeController : Controller
     {
         MovieContext db = new MovieContext();
 
         //синхронный метод
+        /*[Authorize(Users = "Dmitri")]*/
         public ActionResult Index()
         {
             IEnumerable<Movie> movies = db.Movies;
@@ -28,8 +31,19 @@ namespace ItStepSDP211.Controllers
             return View(db.Movies);
         }
 
-        //асинхронный метод
+        [ExceptionFilter]
+        public ActionResult Index2()
+        {
+            int[] mas = new int[3];
+            mas[10] = 8;
 
+            return View();
+        }
+
+
+
+        //асинхронный метод
+        [Authorize(Roles = "admin, manager", Users = "Dmitri, Sergey")]
         public async Task<ActionResult> MovieList()
         {
             IEnumerable<Movie> movies = await db.Movies.ToListAsync();
@@ -37,14 +51,14 @@ namespace ItStepSDP211.Controllers
 
             return View("Index");
         }
-
+        [ActionFilter]
         public string getSessionName()
         {
             var val = Session["name"];
             return val.ToString();
         }
 
-
+        [Cache(Duration =200)]
         public ViewResult SomeMthd()
         {
             ViewData["Head"] = "Hi Itstep !";

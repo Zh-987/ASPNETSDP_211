@@ -11,6 +11,7 @@ using ItStepSDP211.Models;
 
 namespace ItStepSDP211.Controllers
 {
+    
     public class PlayersController : Controller
     {
         private SoccerContext db = new SoccerContext();
