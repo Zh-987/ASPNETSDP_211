@@ -119,7 +119,7 @@ namespace ItStepSDP211.Controllers
         }
         [HttpPost]
         public string AddStudent(List<Student> student)
-        {
+        {   
             string studentsName = "";
             for(int i = 0; i < student.Count; i++)
             {
@@ -158,8 +158,28 @@ namespace ItStepSDP211.Controllers
         { 
             return View();
         }
+        public ActionResult StudentText()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult StudentSearch()
+        {
+            return PartialView();
+        }
 
-       
+        [HttpPost]
+        public ActionResult StudentSearch(string name)
+        {
+            var allStudents = db.Students.Where(a =>a.Name.Contains(name)).ToList();
+            if(allStudents.Count <= 0)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(allStudents);
+        }
+
+
 
     }
 }

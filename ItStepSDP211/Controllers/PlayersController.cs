@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ItStepSDP211.Models;
+using ItStepSDP211.Filters;
 
 namespace ItStepSDP211.Controllers
 {
@@ -41,6 +42,7 @@ namespace ItStepSDP211.Controllers
         }
 
         // GET: Players/Create
+        [LogAttribute]
         public ActionResult Create()
         {
             ViewBag.TeamId = new SelectList(db.Teams, "Id", "Name");

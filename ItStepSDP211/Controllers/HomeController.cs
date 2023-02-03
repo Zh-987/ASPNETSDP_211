@@ -66,7 +66,9 @@ namespace ItStepSDP211.Controllers
 
             return View("Index");
         }
-
+        [RequireHttps]
+        [OutputCache]
+        [ValidateAntiForgeryToken]
         public RedirectResult SwipeLink()
         {
             /*  return Redirect("/Home/Index"); Временная переадресация*/

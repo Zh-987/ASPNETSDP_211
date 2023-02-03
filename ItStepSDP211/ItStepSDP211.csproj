@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BuyTicketsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Filters\CacheAttribute.cs" />
     <Compile Include="Filters\ExceptionFilter.cs" />
+    <Compile Include="Filters\LogAttribute.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\ListHelper.cs" />
     <Compile Include="Helpers\PagingHelpers.cs" />
@@ -152,6 +154,7 @@
     <Compile Include="Models\SoccerContext.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
+    <Compile Include="Models\Visitor.cs" />
     <Compile Include="Util\HtmlResult.cs" />
     <Compile Include="Util\ImageResult.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +194,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -242,6 +247,8 @@
     <Content Include="Views\Players\Delete.cshtml" />
     <Content Include="Views\Players\FlterExample.cshtml" />
     <Content Include="Views\Players\Menu.cshtml" />
+    <Content Include="Views\Student\StudentSearch.cshtml" />
+    <Content Include="Views\Student\StudentText.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -261,7 +268,9 @@
       <DependentUpon>202301271501038_Soccers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
