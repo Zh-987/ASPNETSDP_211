@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BuyTicketsController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
@@ -148,6 +149,7 @@
       <DependentUpon>202301271501038_Soccers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChatModel.cs" />
     <Compile Include="Models\CourseDbInitializer.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\PlayerDbInitializer.cs" />
@@ -189,6 +191,7 @@
     <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
     <Content Include="CodeTemplates\MvcView\ItStepTemplate.cs.t4" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Chat.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -249,6 +252,8 @@
     <Content Include="Views\Players\Menu.cshtml" />
     <Content Include="Views\Student\StudentSearch.cshtml" />
     <Content Include="Views\Student\StudentText.cshtml" />
+    <Content Include="Views\Student\StudentName.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

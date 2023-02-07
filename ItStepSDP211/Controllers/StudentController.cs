@@ -1,8 +1,10 @@
 ﻿using ItStepSDP211.Models;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace ItStepSDP211.Controllers
@@ -179,7 +181,17 @@ namespace ItStepSDP211.Controllers
             return PartialView(allStudents);
         }
 
+        public ActionResult StudentName()
+        {
+            Student student = db.Students.First();
+            return PartialView(student);
+        }
 
+        public JsonResult JsonSearch(string StudnetName)
+        {
+            var jsondata = db.Students.Where(a => a.Name.Contains(StudnetName)).ToList();
+            return Json(jsondata,JsonRequestBehavior.AllowGet);
+        }
 
     }
 }
