@@ -4,6 +4,61 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <h2>@ViewData["Head"]</h2>
+    <h2>@ViewBag.Head1</h2>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<ul class="breadcrumb">
+<li>@Html.ActionLink("Chat","Index","Chat")</li>    
+<li>@Html.ActionLink("ChatRoom", "ChatRoom", "Chat")</li>    
+<li>@Html.ActionLink("History", "History", "Chat")</li>    
+</ul>
+
+
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-default">Default</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+</div>
+
+
+
+<div class="alert alert-danger">Опасно !</div>
+<div class="alert alert-success">Задача успешно завершена !</div>
+<div class="alert alert-info">Дополнительная информация</div>
+<div class="alert alert-warning">Внимание !</div>
+
+<div class="row">
+    <div class="col-xs-offset-2 col-xs-8 col-xs-offset-2 col-sm-12 col-md-4 col-md-push-4 col-lg-4">
+        <h2>Hello Guys from ItStep</h2>
+        <p>It Step Academy is the best Academy in the world!!!</p>
+    </div>
+    <div class=" col-xs-offset-2 col-xs-8 col-xs-offset-2 col-sm-12 col-md-4 col-md-pull-4 col-lg-4">
+        <h2>Hello Almaty</h2>
+        <p>Almaty is the beautiful city </p>
+    </div>
+    <div class=" col-xs-offset-2 col-xs-8 col-xs-offset-2 col-sm-12 col-md-4 col-lg-4">
+        <h2>London, Great Britain</h2>
+        <p>Amazon, Google, Epam</p>
+    </div>
+</div>
+
+
+
+<ul class="pagination">
+    <li><a href="#"><<</li>
+    <li><a href="#">1</li>
+    <li><a href="#">2</li>
+    <li><a href="#">>></li>
+</ul>
+
+
 <h2>Index</h2>
 
 <div id="UserName"></div>

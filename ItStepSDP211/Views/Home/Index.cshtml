@@ -1,35 +1,35 @@
-﻿@using ItStepSDP211.Models
+﻿@*@using ItStepSDP211.Models
 @model IEnumerable<Movie>
-
+*@
 @{
     ViewBag.Title = "Главная страница";
 }
 
 
 @*@{Html.RenderPartial("Partial")}*@
-<br>
+<!--<br>
 <h3>There is Partial</h3>
 
-@Html.Partial("Partial", new string[] { "Kazakhstan", "Canada", "China", "Japan" })
+Html.Partial("Partial", new string[] { "Kazakhstan", "Canada", "China", "Japan" })
 
 <br>
 <h3>There is Helper which written by Razor</h3>
 
-@MyHelpers.HtmlList(new string[] { "Astana", "Toronto", "Beijin", "Tokyo" })
+MyHelpers.HtmlList(new string[] { "Astana", "Toronto", "Beijin", "Tokyo" })
 
 <br>
 <h3>There is Helper which written by C# class</h3>
 
-@{
+{
     string[] Sightseeings = new string[] { "Baiterek", "CN tower", "Forbidden city", "Sakura" };
 }
-@using ItStepSDP211.Helpers
-@ListHelper.CreateList(Html, Sightseeings, new { @class="btn", id="sightseeinglist"})
+using ItStepSDP211.Helpers
+ListHelper.CreateList(Html, Sightseeings, new { @class="btn", id="sightseeinglist"})
 
 <br>
 <h3>There is ImageHelper</h3>
 
-@ImageHelper.Image(Html,"../Images/unnamed.jpg", "It Step");
+ImageHelper.Image(Html,"../Images/unnamed.jpg", "It Step");-->
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -39,63 +39,77 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-<h1>
-    @Session["name"]
-</h1>
-
-@Html.TextBox("name", (string)ViewBag.Head)
-
-
-
 <div class="row">
-    <div class="col-md-12">
-        <h2>Хочу посмотреть Фильм</h2>
-
-
-        <table>
-            <tr>
-                <td>Название фильма</td>
-                <td>Автор</td>
-                <td>Дата релиза</td>
-                <td>Студия</td>
-                <td> </td>
-            </tr>
-
-            @foreach (ItStepSDP211.Models.Movie b in ViewBag.Movies)
-            {
-                <tr>
-                    <td>@b.Name</td>
-                    <td>@b.Author</td>
-                    <td>@b.Date</td>
-                    <td>@b.CreatedBy</td>
-                    <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-                </tr>
-            }
-
-
-            @helper Movie(IEnumerable<ItStepSDP211.Models.Movie> movies)
-            {
-                <ul>
-                    @foreach (ItStepSDP211.Models.Movie b in ViewBag.Movies)
-                    {
-                    <tr>
-                        <td>@b.Name</td>
-                        <td>@b.Author</td>
-                        <td>@b.Date</td>
-                        <td>@b.CreatedBy</td>
-                        <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-                    </tr>
-                    }
-                    </ul>
-            }
-        </table>
-
-
-
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h2>Hello Guys from ItStep</h2>
+        <p>It Step Academy is the best Academy in the world!!!</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h2>Hello Almaty</h2>
+        <p>Almaty is the beautiful city </p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <h2>London, Great Britain</h2>
+        <p>Amazon, Google, Epam</p>
     </div>
 </div>
+    @*<h1>
+            @Session["name"]
+        </h1>
+
+        @Html.TextBox("name", (string)ViewBag.Head)
+
+    *@
+    @*
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Хочу посмотреть Фильм</h2>
 
 
-@section Footer{
-    <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
-}
+                <table>
+                    <tr>
+                        <td>Название фильма</td>
+                        <td>Автор</td>
+                        <td>Дата релиза</td>
+                        <td>Студия</td>
+                        <td> </td>
+                    </tr>
+
+                    @foreach (ItStepSDP211.Models.Movie b in ViewBag.Movies)
+                    {
+                        <tr>
+                            <td>@b.Name</td>
+                            <td>@b.Author</td>
+                            <td>@b.Date</td>
+                            <td>@b.CreatedBy</td>
+                            <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+                        </tr>
+                    }
+
+
+                    @helper Movie(IEnumerable<ItStepSDP211.Models.Movie> movies)
+                    {
+                        <ul>
+                            @foreach (ItStepSDP211.Models.Movie b in ViewBag.Movies)
+                            {
+                            <tr>
+                                <td>@b.Name</td>
+                                <td>@b.Author</td>
+                                <td>@b.Date</td>
+                                <td>@b.CreatedBy</td>
+                                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+                            </tr>
+                            }
+                            </ul>
+                    }
+                </table>
+
+
+
+            </div>
+        </div>*@
+
+
+    @section Footer{
+        <p>&copy; @DateTime.Now.Year - мое приложение ASP.NET</p>
+    }

@@ -23,15 +23,15 @@ namespace ItStepSDP211.Controllers
         /*[Authorize(Users = "Dmitri")]*/
         public ActionResult Index()
         {
-            IEnumerable<Movie> movies = db.Movies;
+          /*  IEnumerable<Movie> movies = db.Movies;
             ViewBag.Movies = movies;
             ViewBag.Message = "This is Partial View !";
             Session["name"] = null; //"Tom Hardi";
-
-            return View(db.Movies);
+*/
+            return View(); //db.Movies
         }
 
-        [ExceptionFilter]
+        /*[ExceptionFilter]*/
         public ActionResult Index2()
         {
             int[] mas = new int[3];
