@@ -1,0 +1,11 @@
+﻿@model IEnumerable<ItStepSDP211.Models.Student>
+
+<div id="searchresults">
+    <h3> Students: </h3>
+    <ul>
+    @foreach (var i in Model)
+            {
+        <li>@i.Name</li>
+            }
+        </ul>
+</div>

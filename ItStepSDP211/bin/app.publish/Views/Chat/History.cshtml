@@ -1,0 +1,23 @@
+﻿@model ItStepSDP211.Models.ChatModel
+
+<div id="Users">
+    <p><b>Online:@Model.Users.Count</b></p>
+    @foreach(ItStepSDP211.Models.ChatUser user in Model.Users)
+            {
+                <p>@user.Name</p>
+            }
+    </div>
+<div id="Messages">
+    @foreach (ItStepSDP211.Models.ChatMessage msg in Model.Messages) {
+        
+        <p>@msg.Date<br/>
+    
+    @if(msg.User != null){
+        <b>@(msg.User.Name + ":")</b> @msg.Message
+    }
+    else{
+    <span class="serverMes">@msg.Message</span>
+    } 
+    </p>
+    }
+</div>

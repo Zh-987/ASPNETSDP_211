@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ItStepSDP211.Models.MenuItem>
+
+@helper BuildMenu(IEnumerable<ItStepSDP211.Models.MenuItem> data, int? parentid = null) { 
+var items = data.Where(d => d.ParentId == parentid).OrderBy(i => i.Order);
+if (items.Any())
+    {
+
+
+<ul>
+    @foreach (var item in items)
+    {
+        <li>
+
+    <a href="@item.Url">@item.Header</a>
+
+    
+
+    @BuildMenu(data,item.Id)
+
+    </li>
+    }
+</ul>
+    }
+    }
+
+<div id="cssmenu">
+    @BuildMenu(Model)
+</div>

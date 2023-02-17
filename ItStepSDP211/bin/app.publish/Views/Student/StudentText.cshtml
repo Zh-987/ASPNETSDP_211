@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "StudentText";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>StudentText</h2>
+
+<script type="text/javascript">
+    function OnSuccess(data) {
+        var results = $('#results')
+        results.empty()
+        for (var i = 0; i < data.length; i++) {
+            results.append('<li>' + data[i].Name + '</li>');
+        }
+    }
+</script>
+
+@using (Ajax.BeginForm("JsonSearch", new AjaxOptions{ OnSuccess = "OnSuccess" }))
+{
+    <input type="text" name="name">
+    <input type="submit" value="Find">
+            }
+
+<div id="loading" style="display:none;color:red;font-weight:bold">
+     <p>LOADING ...</p>
+</div>
+<div id="results" >
+
+</div>
+
+
+<div id="Link">
+    @Ajax.ActionLink("Students","StudentName",new AjaxOptions() { UpdateTargetId = "Link" })
+</div>
+
+
+
+@Scripts.Render("~/bundles/jquery")  
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
